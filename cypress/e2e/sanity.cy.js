@@ -1,11 +1,11 @@
-describe('athena happy flow', function() {
+describe('demo testing for cypress', function() {
   beforeEach(function() {
-    cy.intercept('POST', 'https://haptikappimg.s3.amazonaws.com/').as(
+    cy.intercept('POST', '').as(
       'imageuploaded'
     );
   });
 
-  it('C459 Should be able to send message', function() {
+  it('Should be able to assert UI elements', function() {
     cy.visit('/');
     cy.get('.category-cards > :nth-child(1) > :nth-child(1)').click();
     
