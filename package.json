@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "cypress": "^10.3.0"
+  },
+
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --config config/webpack.development.config.js --colors",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config config/webpack.production.config.js --colors",
+    "deploy:netlify": "bash config/netlify.sh",
+    "webpack-watch": "npm run start",
+    "cy:build": "NETLIFY=true npm run build",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AwadheshJha/cypress.git"
+  }
+}
