@@ -13,10 +13,19 @@ pipeline {
                 sh 'npm i'
             }
         }
-        
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                sh 'cypress run'
+            }
+        }
         stage('e2e Tests') {
             steps {
-                sh 'npm cypress run'
+                sh 'npm run cypress:ci'
             }
         }
         stage('Deploy') {
