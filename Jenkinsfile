@@ -10,18 +10,18 @@ pipeline {
     stages {
         stage('Dependencies') {
             steps {
-                sh 'npm i'
+                sh 'yarn'
             }
         }
         
-        stage('Unit Tests') {
+        stage('yarn install') {
             steps {
-                sh 'cypress run'
+                sh 'yarn install'
             }
         }
         stage('e2e Tests') {
             steps {
-                sh 'npm run cypress:ci'
+                sh 'yarn run cy:run'
             }
         }
         stage('Deploy') {
