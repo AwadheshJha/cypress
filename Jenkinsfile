@@ -1,23 +1,18 @@
 pipeline {
-    agent any
-
-    tools {nodejs "node"}
-
-    environment {
-        CHROME_BIN = '/bin/google-chrome'
+  agent {
+    // this image provides everything needed to run Cypress
+    docker {
+      image 'cypress/base:10'
     }
+  }
 
-    stages {
-        
-        stage('e2e Tests') {
-            steps {
-                sh 'yarn run cy:run'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+  stages {
+    stage('build and test') {
+
+      steps {
+        sh 'npm ci'
+        sh "npm run test"
+      }
     }
+  }
 }
