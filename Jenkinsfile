@@ -8,17 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('Dependencies') {
-            steps {
-                sh 'yarn'
-            }
-        }
         
-        stage('yarn install') {
-            steps {
-                sh 'yarn install'
-            }
-        }
         stage('e2e Tests') {
             steps {
                 sh 'yarn run cy:run'
